@@ -6,6 +6,11 @@
 // FIXME needed for gl_platform pointer access
 #include <../libobs-opengl/gl-subsystem.h>
 
+#include <X11/Xlib.h>
+#include <X11/Xlib-xcb.h>
+
+#include <xcb/xcb.h>
+
 #include <obs-module.h>
 #include <obs-nix-platform.h>
 #include <util/platform.h>
@@ -36,6 +41,9 @@ static PFNGLEGLIMAGETARGETTEXTURE2DOESPROC glEGLImageTargetTexture2DOES;
 #include <limits.h>
 
 // FIXME sync w/ gl-x11-egl.c
+typedef EGLDisplay(EGLAPIENTRYP PFNEGLGETPLATFORMDISPLAYEXTPROC)(
+	EGLenum platform, void *native_display, const EGLint *attrib_list);
+
 struct gl_platform {
 	Display *xdisplay;
 	EGLDisplay edisplay;
