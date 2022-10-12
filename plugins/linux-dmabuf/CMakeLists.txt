@@ -26,4 +26,4 @@ target_link_libraries(obs-drmsend PRIVATE ${DRM_LIBRARIES})
 #
 #	add_custom_command(TARGET drmsend POST_BUILD
 #		COMMAND setcap cap_sys_admin+ep "$<TARGET_FILE:drmsend>")
-install_obs_core(obs-drmsend)
+# install_obs_core(obs-drmsend)
