@@ -45,6 +45,9 @@ extern struct obs_encoder_info aom_av1_encoder_info;
 
 #ifdef LIBAVUTIL_VAAPI_AVAILABLE
 extern struct obs_encoder_info vaapi_encoder_info;
+#ifdef ENABLE_HEVC
+extern struct obs_encoder_info vaapi_encoder_hevc_info;
+#endif
 #endif
 
 #ifndef __APPLE__
@@ -386,6 +389,9 @@ bool obs_module_load(void)
 	if (h264_vaapi_supported()) {
 		blog(LOG_INFO, "FFmpeg VAAPI H264 encoding supported");
 		obs_register_encoder(&vaapi_encoder_info);
+#ifdef ENABLE_HEVC
+		obs_register_encoder(&vaapi_encoder_hevc_info);
+#endif
 	} else {
 		blog(LOG_INFO, "FFmpeg VAAPI H264 encoding not supported");
 	}

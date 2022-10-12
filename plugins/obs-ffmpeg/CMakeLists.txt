@@ -123,6 +123,9 @@ elseif(OS_POSIX AND NOT OS_MACOS)
   find_package(Libpci REQUIRED)
   target_sources(obs-ffmpeg PRIVATE obs-ffmpeg-vaapi.c vaapi-utils.c
                                     vaapi-utils.h)
+  if(ENABLE_HEVC)
+    target_sources(obs-ffmpeg PRIVATE obs-ffmpeg-vaapi-hevc.c)
+  endif()
   target_link_libraries(obs-ffmpeg PRIVATE Libva::va LIBPCI::LIBPCI)
 endif()
 
