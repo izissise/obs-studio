@@ -92,7 +92,7 @@ static obs_properties_t *vaapi_properties_avc(void *unused)
 	return vaapi_properties(unused, add_profile_property);
 }
 
-struct obs_encoder_info vaapi_encoder_info = {
+struct obs_encoder_info vaapi_encoder_info_avc = {
 	.id = "ffmpeg_vaapi",
 	.type = OBS_ENCODER_VIDEO,
 	.codec = "h264",

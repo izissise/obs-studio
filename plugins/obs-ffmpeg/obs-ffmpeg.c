@@ -390,6 +390,7 @@ bool obs_module_load(void)
 		blog(LOG_INFO, "FFmpeg VAAPI H264 encoding supported");
 		obs_register_encoder(&vaapi_encoder_info);
 #ifdef ENABLE_HEVC
+		obs_register_encoder(&vaapi_encoder_hevc_avc);
 		obs_register_encoder(&vaapi_encoder_hevc_info);
 #endif
 	} else {
